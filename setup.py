@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="zabbix-automation",
+    name="zabbix_automation",
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
@@ -14,10 +14,10 @@ setup(
         ]
     },
     # Optional metadata:
-    # author="Your Name",
-    # author_email="your.email@example.com",
+    # author="Ahmed Elkomey",
+    # author_email="ahmedelkomey961@gmail.com",
     # description="Zabbix Automation CLI and Modules",
     # license="MIT",
     # keywords="zabbix automation",
-    # url="https://github.com/yourusername/zabbix-automation"
+    # url="https://github.com/AhmedElkomey/zabbix_automation.git"
 )
