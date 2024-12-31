@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="zabbix_automation",
-    version="0.1.0",
+    name="zabbix-automator",
+    version="0.1.2",
     packages=find_packages(),
     install_requires=[
         "zabbix-utils",

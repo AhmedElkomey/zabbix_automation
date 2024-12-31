@@ -1,6 +1,6 @@
 # Description: This script fetches monitoring data for a web scenario.
 
-from zabbix_automation.modules import items
+from zabbix_automator.modules import items
 
 host_id = input('Enter the host ID: ')
 web_scenario_name = input('Enter the web scenario name: ')

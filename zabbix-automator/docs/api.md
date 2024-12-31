@@ -1,6 +1,6 @@
 # API Documentation
 
-This document provides the API documentation for the `zabbix_automation` package modules.
+This document provides the API documentation for the `zabbix-automator` package modules.
 
 ## Modules
 

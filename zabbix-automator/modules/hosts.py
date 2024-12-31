@@ -3,7 +3,7 @@ from typing import Any, Dict, List
 from zabbix_utils import ZabbixAPI
 
 # Load configuration from config file
-from zabbix_automation.config import load_config
+from zabbix_automator.config import load_config
 
 config = load_config()
 zabbix = ZabbixAPI(

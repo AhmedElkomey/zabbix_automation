@@ -11,7 +11,7 @@ pip install -e .
 or
 
 ```bash
-pip install zabbix-automation
+pip install zabbix-automator
 ```
 ## Configuration
 create a config.yaml in your root project directory and add your configuration like that:
@@ -55,7 +55,7 @@ You can also use the modules directly in your python scripts to automate zabbix.
 **Example:**
 
 ```python
-from zabbix_automation.modules import hosts, items
+from zabbix-automator.modules import hosts, items
 
 try:
   # Create a host

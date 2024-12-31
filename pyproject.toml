@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "zabbix_automation"
+name = "zabbix-automator"
 version = "0.1.0"
 description = "Zabbix Automation CLI and Modules"
 authors = [
