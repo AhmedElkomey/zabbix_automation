@@ -1,3 +1,5 @@
+import logging
+from typing import Any, Dict, List
 from zabbix_utils import ZabbixAPI
 
 # Load configuration from config file
@@ -9,8 +11,14 @@ zabbix = ZabbixAPI(
     token=config.get("api_token"),
 )
 
-
-def create_host(name, group_ids, ip):
+def create_host(name: str, group_ids: List[str], ip: str) -> Dict[str, Any]:
+    """
+    Create a new Zabbix host.
+    :param name: Host name
+    :param group_ids: List of group IDs
+    :param ip: IP address for the host
+    :return: API response dict
+    """
     try:
         result = zabbix.host.create(
             host=name,
@@ -24,64 +32,65 @@ def create_host(name, group_ids, ip):
                     "port": "10050",
                 }
             ],
-            groups=[{"groupid": group_id} for group_id in group_ids]
+            groups=[{"groupid": gid} for gid in group_ids]
         )
         return result
     except Exception as e:
-         raise Exception(f"Failed to create host: {e}")
+        logging.error(f"Failed to create host: {e}")
+        raise
 
-def get_host(name):
+def get_host(name: str) -> List[Dict[str, Any]]:
+    """
+    Retrieve a host by name.
+    :param name: Host name
+    :return: List of host dict objects
+    """
     try:
         host = zabbix.host.get(filter={"host": name})
         return host
     except Exception as e:
-          raise Exception(f"Failed to get host: {e}")
+        logging.error(f"Failed to get host: {e}")
+        raise
 
-def update_host(hostid, **kwargs):
-     try:
-        result = zabbix.host.update(hostid=hostid,**kwargs)
+def update_host(hostid: str, **kwargs) -> Dict[str, Any]:
+    """
+    Update a host.
+    :param hostid: Host ID
+    :param kwargs: Additional parameters to pass to the API
+    :return: API response dict
+    """
+    try:
+        result = zabbix.host.update(hostid=hostid, **kwargs)
         return result
-     except Exception as e:
-         raise Exception(f"Failed to update host: {e}")
+    except Exception as e:
+        logging.error(f"Failed to update host: {e}")
+        raise
 
-def delete_host(hostid):
-   try:
+def delete_host(hostid: str) -> Dict[str, Any]:
+    """
+    Delete a host.
+    :param hostid: Host ID
+    :return: API response dict
+    """
+    try:
         result = zabbix.host.delete(hostids=hostid)
         return result
-   except Exception as e:
-        raise Exception(f"Failed to delete host: {e}")
-def list_hosts(filters=None):
+    except Exception as e:
+        logging.error(f"Failed to delete host: {e}")
+        raise
+
+def list_hosts(filters: Dict[str, Any] = None) -> List[Dict[str, Any]]:
+    """
+    List all hosts with optional filters.
+    :param filters: Dict of Zabbix filter options
+    :return: List of host dict objects
+    """
     try:
         if filters:
-            hosts = zabbix.host.get(filter=filters,output=["hostid", "host"])
+            hosts = zabbix.host.get(filter=filters, output=["hostid", "host"])
         else:
-             hosts = zabbix.host.get(output=["hostid", "host"])
+            hosts = zabbix.host.get(output=["hostid", "host"])
         return hosts
     except Exception as e:
-        raise Exception(f"Failed to list hosts: {e}")
-if __name__ == '__main__':
-    # Example usage
-    try:
-        # Create a new host
-        new_host = create_host(name="test-host-cli-1",group_ids=["2"], ip="127.0.0.1")
-        print(f"Host created: {new_host}")
-
-        # Fetch the host
-        host = get_host("test-host-cli-1")
-        print(f"Host: {host}")
-        host_id = host[0]['hostid']
-        # update the host
-        update_host_result=update_host(hostid=host_id,status=1)
-        print(f"Host updated: {update_host_result}")
-        # fetch all hosts
-        hosts=list_hosts()
-        print("All hosts:",hosts)
-        # filter hosts
-        hosts=list_hosts(filters={'host':'test-host-cli-1'})
-        print("Filtered hosts:",hosts)
-
-         # Delete the host
-        delete_host(host_id)
-        print(f"Host deleted")
-    except Exception as e:
-        print(f"Error: {e}")
+        logging.error(f"Failed to list hosts: {e}")
+        raise

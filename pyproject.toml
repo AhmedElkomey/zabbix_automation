@@ -6,8 +6,8 @@ build-backend = "setuptools.build_meta"
 name = "zabbix-automation"
 version = "0.1.0"
 dependencies = [
-"zabbix-utils",
-"pyyaml"
+  "zabbix-utils",
+  "pyyaml",
 ]
 
 [project.scripts]
