@@ -1,5 +1,5 @@
 import logging
-from modules import web
+from zabbix_automator.modules import web
 
 def register_web_commands(subparsers):
     """Register 'web' sub-commands."""

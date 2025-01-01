@@ -1,5 +1,5 @@
 import logging
-from modules import groups
+from zabbix_automator.modules import groups
 
 def register_group_commands(subparsers):
     """Register 'group' sub-commands under the top-level CLI parser."""

@@ -3,21 +3,20 @@ from setuptools import setup, find_packages
 setup(
     name="zabbix-automator",
     version="0.1.2",
-    packages=find_packages(),
+    description="Zabbix Automation CLI and Modules",
+    author="Ahmed Elkomey",
+    author_email="ahmedelkomey961@gmail.com",
+    license="MIT",
+    url="https://github.com/AhmedElkomey/zabbix_automation.git",
+    keywords=["zabbix", "automation"],
+    packages=find_packages(),  # Or find_packages(where="src") if using a src/ layout
     install_requires=[
         "zabbix-utils",
-        "pyyaml"
+        "pyyaml",
     ],
     entry_points={
         "console_scripts": [
-            "zabbix-cli=cli.main:main",
+            "zabbix-cli=zabbix_automator.cli.main:main",
         ]
     },
-    # Optional metadata:
-    # author="Ahmed Elkomey",
-    # author_email="ahmedelkomey961@gmail.com",
-    # description="Zabbix Automation CLI and Modules",
-    # license="MIT",
-    # keywords="zabbix automation",
-    # url="https://github.com/AhmedElkomey/zabbix_automation.git"
 )

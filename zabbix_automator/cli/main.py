@@ -1,12 +1,12 @@
 import argparse
 import logging
 # Import each CLI module
-from cli.hosts import register_host_commands
-from cli.groups import register_group_commands
-from cli.items import register_item_commands
-from cli.triggers import register_trigger_commands
-from cli.web import register_web_commands
-from cli.templates import register_template_commands
+from .hosts import register_host_commands
+from .groups import register_group_commands
+from .items import register_item_commands
+from .triggers import register_trigger_commands
+from .web import register_web_commands
+from .templates import register_template_commands
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 

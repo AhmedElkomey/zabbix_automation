@@ -1,5 +1,5 @@
 import logging
-from modules import triggers
+from zabbix_automator.modules import triggers
 
 def register_trigger_commands(subparsers):
     """Register 'trigger' sub-commands."""

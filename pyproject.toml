@@ -1,17 +1,15 @@
 [build-system]
-requires = ["setuptools>=61.0.0"]
+requires = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "zabbix-automator"
-version = "0.1.0"
+version = "0.1.2"
 description = "Zabbix Automation CLI and Modules"
 authors = [
-  { name = "Ahmed Elkomey", email = "someone@example.com" }
+  { name = "Ahmed Elkomey", email = "ahmedelkomey961@gmail.com" }
 ]
 keywords = ["zabbix", "automation"]
-
-# For license, you can do this:
 license = { text = "MIT" }
 
 dependencies = [
@@ -19,5 +17,9 @@ dependencies = [
   "pyyaml",
 ]
 
+# If you want to include additional files, declare them here or via MANIFEST.in
+# [tool.setuptools]
+# include-package-data = true
+
 [project.scripts]
-zabbix-cli = "cli.main:main"
+zabbix-cli = "zabbix_automator.cli.main:main"

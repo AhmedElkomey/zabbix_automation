@@ -1,5 +1,5 @@
 import logging
-from modules import templates
+from zabbix_automator.modules import templates
 
 def register_template_commands(subparsers):
     """Register 'template' sub-commands."""

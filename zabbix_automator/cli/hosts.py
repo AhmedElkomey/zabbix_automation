@@ -1,5 +1,5 @@
 import logging
-from modules import hosts  # The underlying logic from modules/hosts.py
+from zabbix_automator.modules import hosts  # The underlying logic from modules/hosts.py
 
 def register_host_commands(subparsers):
     """Register 'host' sub-commands under the top-level CLI parser."""

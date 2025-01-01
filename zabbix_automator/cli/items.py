@@ -1,6 +1,6 @@
 import logging
 import json
-from modules import items
+from zabbix_automator.modules import items
 
 def register_item_commands(subparsers):
     """Register 'item' sub-commands."""
