@@ -1,5 +1,4 @@
 import unittest
-from unittest.mock import patch, MagicMock
 from zabbix_automator.utils import format_time, validate_response, parse_severity
 
 class TestUtils(unittest.TestCase):
@@ -12,8 +11,9 @@ class TestUtils(unittest.TestCase):
     def test_validate_response(self):
         valid_response = {'result': ['data']}
         invalid_response = {'error': {'code': 123, 'message': 'Error'}}
-        
+
         self.assertTrue(validate_response(valid_response))
+
         with self.assertRaises(ValueError):
             validate_response(invalid_response)
 
@@ -21,6 +21,7 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(parse_severity('disaster'), 5)
         self.assertEqual(parse_severity('high'), 4)
         self.assertEqual(parse_severity('warning'), 2)
+
         with self.assertRaises(ValueError):
             parse_severity('invalid')
 

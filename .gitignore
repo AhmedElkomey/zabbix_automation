@@ -10,3 +10,4 @@ dist/
 *.egg-info/
 config.yaml
 .coverage
+requirements-dev.txt
